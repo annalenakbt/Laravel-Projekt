@@ -18,7 +18,7 @@ class EinkauflisteController extends Controller
     public function upload(Request $request){       //Rückgabe der eingebene Artikel 
         $einkauf = $request->title;
         Einkaufliste::create(['title' => $einkauf]);
-        return redirect()->back();
+        return redirect()->back()->with('success', "Einkauf wurde erfolgreich hinzugefügt!");
 
     }
 
