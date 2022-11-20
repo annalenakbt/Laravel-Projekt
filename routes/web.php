@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EinkauflisteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/index', [EinkauflisteController::class, 'index']);                     //Zugriff auf die verschiedenen Klassen
+Route::get('/create', [EinkauflisteController::class, 'create']);
+Route::post('/upload', [EinkauflisteController::class, 'upload']);
+Route::get('/edit', [EinkauflisteController::class, 'edit']);

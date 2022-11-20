@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Einkaufliste extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'titel', 
+        'completed'
+    ]; 
+
 }
