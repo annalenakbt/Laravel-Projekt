@@ -16,6 +16,9 @@ class EinkauflisteController extends Controller
     }
  
     public function upload(Request $request){       //Rückgabe der eingebene Artikel 
+        $request->validate([
+            'title' => 'required|max:255'
+        ]);
         $einkauf = $request->title;
         Einkaufliste::create(['title' => $einkauf]);
         return redirect()->back()->with('success', "Einkauf wurde erfolgreich hinzugefügt!");  //man wird zur Startseite zurcükgeführt, Anzeigen, dass die Eingabe erfolgreich war
