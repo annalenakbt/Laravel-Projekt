@@ -8,6 +8,9 @@
 </head>
 <body>
     <h1>Hier siehst du all deine Einkäufe</h1>
+    <h3>
+        <a href="/create">Einkäufe hinzufügen</a>
+    </h3>
     @foreach($einkäufe as $einkaufliste)
         <li>
             {{$einkaufliste->title}}
