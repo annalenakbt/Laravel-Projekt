@@ -14,7 +14,7 @@
     @foreach($einkäufe as $einkaufliste)
         <li>
             {{$einkaufliste->title}}
-            <a href="{{asset('/edit' . $einkaufliste->id . '/edit')}}">Bearbeiten</a>
+            <a href="{{asset('/' . $einkaufliste->id . '/edit')}}">Bearbeiten</a>
     @endforeach
 </body>
 </html>

@@ -21,4 +21,4 @@ Route::get('/', function () {
 Route::get('/index', [EinkauflisteController::class, 'index'])->name('einkaufliste.index');                     //Zugriff auf die verschiedenen Seiten
 Route::get('/create', [EinkauflisteController::class, 'create']);
 Route::post('/upload', [EinkauflisteController::class, 'upload']);
-Route::get('/{id}edit', [EinkauflisteController::class, 'edit']);
+Route::get('/{id}/edit', [EinkauflisteController::class, 'edit']);
