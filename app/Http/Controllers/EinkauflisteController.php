@@ -8,7 +8,8 @@ use App\Models\Einkaufliste;
 class EinkauflisteController extends Controller
 {
     public function index(){                        // Startseite 
-        return Einkaufliste::all();
+        $einkäufe = Einkaufliste::all();
+        return view('einkaufliste.index')->with(['einkäufe' => $einkäufe]); 
     }
 
     public function create(){                       //Erstellung der Einkaufsliste 

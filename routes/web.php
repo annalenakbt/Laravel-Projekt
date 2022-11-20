@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/index', [EinkauflisteController::class, 'index']);                     //Zugriff auf die verschiedenen Seiten
+Route::get('/index', [EinkauflisteController::class, 'index'])->name('einkaufliste.index');                     //Zugriff auf die verschiedenen Seiten
 Route::get('/create', [EinkauflisteController::class, 'create']);
 Route::post('/upload', [EinkauflisteController::class, 'upload']);
 Route::get('/edit', [EinkauflisteController::class, 'edit']);
