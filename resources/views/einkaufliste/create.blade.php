@@ -8,9 +8,9 @@
 </head>
 <body style="text-align:center">                                                
     <h1>Erstelle deine Einkaufliste</h1>
-    <form action="/upload"method="post">
+    <form action="/upload" method="post">
         @csrf
-        <input type="text" name="titel" />
+        <input type="text" name="title" />
         <input type="submit" name="Create" />
     </form>
     <break>

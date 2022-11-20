@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('einkaufliste', function (Blueprint $table) {               //Funktion Einkaufliste wird erstellt
+        Schema::create('einkauflistes', function (Blueprint $table) {               //Funktion Einkaufliste wird erstellt
             $table->id();
-            $table->string('titel');
+            $table->string('title');
             $table->boolean('completed')->default(false);
             $table->timestamps();
         });
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('einkaufliste');
+        Schema::dropIfExists('einkauflistes');
     }
 };
