@@ -8,7 +8,7 @@ use App\Models\Einkaufliste;
 class EinkauflisteController extends Controller
 {
     public function index(){                        // Startseite 
-        return "Hi";
+        return Einkaufliste::all();
     }
 
     public function create(){                       //Erstellung der Einkaufsliste 
