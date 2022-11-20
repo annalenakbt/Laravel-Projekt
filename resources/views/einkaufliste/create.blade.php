@@ -8,6 +8,9 @@
 </head>
 <body style="text-align:center">                                                
     <h1>Erstelle deine Einkaufliste</h1>
+    <h3>
+        <x-alert />
+    </h3>
     <form action="/upload" method="post">
         @csrf
         <input type="text" name="title" />

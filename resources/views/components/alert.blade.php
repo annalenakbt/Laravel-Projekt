@@ -1,3 +1,5 @@
 <div>
-    <!-- The whole future lies in uncertainty: live immediately. - Seneca -->
+    @if(session()->has('success'))
+        {{session()->get('success')}}
+    @endif
 </div>
