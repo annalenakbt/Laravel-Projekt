@@ -14,6 +14,7 @@
     @foreach($einkäufe as $einkaufliste)
         <li>
             {{$einkaufliste->title}}
+            <a href="/edit">Bearbeiten</a>
     @endforeach
 </body>
 </html>
