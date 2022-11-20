@@ -26,7 +26,7 @@ class EinkauflisteController extends Controller
 
     }
 
-    public function edit(){
-        return "Hiii";
+    public function edit($id){
+        return $id;
     }
 }
