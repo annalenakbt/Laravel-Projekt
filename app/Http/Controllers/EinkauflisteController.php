@@ -27,6 +27,6 @@ class EinkauflisteController extends Controller
     }
 
     public function edit($id){
-        return $id;
+        return view('einkaufliste.edit')->with(['id' => $id]);
     }
 }
