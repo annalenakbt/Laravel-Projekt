@@ -22,3 +22,4 @@ Route::get('/index', [EinkauflisteController::class, 'index'])->name('einkauflis
 Route::get('/create', [EinkauflisteController::class, 'create']);
 Route::post('/upload', [EinkauflisteController::class, 'upload']);
 Route::get('/{id}/edit', [EinkauflisteController::class, 'edit']);
+Route::patch('/update', [EinkauflisteController::class, 'update']);

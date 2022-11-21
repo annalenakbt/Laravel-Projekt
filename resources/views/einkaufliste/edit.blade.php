@@ -10,8 +10,9 @@
     <h1>Bearbeite deine Einkaufliste</h1>
     <form action="/update" method="post">
         @csrf
+        @method('patch')
         <input type="text" name="title" value="{{$einkaufliste->title}}"/>
-        <input type="submit" name="Create" />
+        <input type="submit" value="Bearbeiten" />
     </form>
     <break>
     <a href="/index">Zurück</a>

@@ -14,7 +14,7 @@
     <form action="/upload" method="post">
         @csrf
         <input type="text" name="title" />
-        <input type="submit" name="Create" />
+        <input type="submit" value="Erstellen" />
     </form>
     <break>
     <a href="/index">Zurück</a>

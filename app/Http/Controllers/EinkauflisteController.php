@@ -31,4 +31,8 @@ class EinkauflisteController extends Controller
         $updateTitle = $einkaufliste->title; 
         return view('einkaufliste.edit')->with(['id' => $id, 'einkaufliste' => $einkaufliste]);
     }
+
+    public function update(){
+        
+    }
 }
