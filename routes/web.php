@@ -24,3 +24,4 @@ Route::post('/upload', [EinkauflisteController::class, 'upload']);
 Route::get('/{id}/edit', [EinkauflisteController::class, 'edit']);
 Route::patch('/update', [EinkauflisteController::class, 'update']);
 Route::get('/{id}/completed', [EinkauflisteController::class, 'completed']);
+Route::get('/{id}/delete', [EinkauflisteController::class, 'delete']);

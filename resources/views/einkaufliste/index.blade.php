@@ -23,6 +23,7 @@
             @endif
             <a href="{{asset('/' . $einkaufliste->id . '/edit')}}">Bearbeiten</a>
             <a href="{{asset('/' . $einkaufliste->id . '/completed')}}">Gekauft</a>
+            <a href="{{asset('/' . $einkaufliste->id . '/delete')}}">Löschen</a>
         </li>
     @endforeach
 </body>

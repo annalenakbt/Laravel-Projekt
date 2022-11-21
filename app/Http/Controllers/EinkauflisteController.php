@@ -51,4 +51,10 @@ class EinkauflisteController extends Controller
             return redirect()->back()->with('success', "Einkauf als gekauft markiert");
         }
     }
+
+    public function delete($id){
+        $einkaufliste = Einkaufliste::find($id);
+        $einkaufliste->delete(); 
+        return redirect()->back()->with('success', "Einkauf wurde gelöscht");
+    }
 }
