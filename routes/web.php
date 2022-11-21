@@ -28,5 +28,6 @@ Route::get('/{id}/completed', [EinkauflisteController::class, 'completed']);
 Route::get('/{id}/delete', [EinkauflisteController::class, 'delete']);
 Route::get('/register', [UserController::class, 'register']);
 Route::post('/users', [UserController::class, 'user']);
-Route::get('/logout', [UserController::class, 'logout']);
+Route::post('/logout', [UserController::class, 'logout']);
 Route::get('/login', [UserController::class, 'login']);
+Route::post('/users/authenicate', [UserController::class, 'login']);

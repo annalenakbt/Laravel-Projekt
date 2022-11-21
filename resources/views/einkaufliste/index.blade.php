@@ -20,10 +20,10 @@
                 class="fa-solid fa-gear"></i> Manage Listings</a>
             </li>
             <li>
-                <form class="inline" methode="POST" action="/logout">
+                <form class="inline" method="POST" action="/logout">
                     @csrf
                     <button type="submit">
-                        <i class="fa-solid fa-door-closed"></i> Ausloggen
+                        Ausloggen
                     </button>
                 </form>
             </li>
