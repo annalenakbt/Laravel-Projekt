@@ -16,7 +16,11 @@
     </h3>
     @foreach($einkäufe as $einkaufliste)
         <li>
-            {{$einkaufliste->title}}
+            @if($einkaufliste->completed)
+                <span style="text-decoration:line-through">{{$einkaufliste->title}}</span>
+            @else 
+                {{$einkaufliste->title}}
+            @endif
             <a href="{{asset('/' . $einkaufliste->id . '/edit')}}">Bearbeiten</a>
             <a href="{{asset('/' . $einkaufliste->id . '/completed')}}">Gekauft</a>
     @endforeach

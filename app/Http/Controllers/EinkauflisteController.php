@@ -45,7 +45,7 @@ class EinkauflisteController extends Controller
         $einkaufliste = Einkaufliste::find($id);
         if ($einkaufliste->completed){
             $einkaufliste->update(['completed' => false]);
-            return redirect()->back()->with('success', "Einkauf als gekauft markiert");
+            return redirect()->back()->with('success', "Einkauf als nicht gekauft markiert");
         }else {
             $einkaufliste->update(['completed' =>true]);
             return redirect()->back()->with('success', "Einkauf als gekauft markiert");
