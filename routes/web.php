@@ -26,8 +26,8 @@ Route::get('/{id}/edit', [EinkauflisteController::class, 'edit'])->middleware('a
 Route::patch('/update', [EinkauflisteController::class, 'update'])->middleware('auth');
 Route::get('/{id}/completed', [EinkauflisteController::class, 'completed'])->middleware('auth');
 Route::get('/{id}/delete', [EinkauflisteController::class, 'delete'])->middleware('auth');
-Route::get('/register', [UserController::class, 'register']);
+Route::get('/register', [UserController::class, 'register'])->middleware('guest');
 Route::post('/users', [UserController::class, 'user']);
 Route::post('/logout', [UserController::class, 'logout']);
-Route::get('/login', [UserController::class, 'login'])->name('login');
+Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
