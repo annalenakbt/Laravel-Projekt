@@ -8,7 +8,7 @@ use App\Models\Einkaufliste;
 class EinkauflisteController extends Controller
 {
     public function index(){                        // Startseite 
-        $einkäufe = Einkaufliste::all();
+        $einkäufe = Einkaufliste::orderBy('completed')->get();
         return view('einkaufliste.index')->with(['einkäufe' => $einkäufe]); 
     }
 
