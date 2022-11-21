@@ -27,5 +27,13 @@ class UserController extends Controller
 
         return redirect('/index')->with('message', 'User wurde erfolgreich angelegt');
     }
-    
+
+    public function logout(Request $request) {
+        auth()->logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/index')->with('message', 'Du bist jetzt ausgeloggt'); 
+    }
 }
