@@ -20,13 +20,15 @@ class EinkauflisteController extends Controller
         $request->validate([
             'title' => 'required|max:255'
         ]);
-        $einkauf = $request->title;
-        Einkaufliste::create(['title' => $einkauf]);
+        $einkaufliste = $request->title;
+        Einkaufliste::create(['title' => $einkaufliste]);
         return redirect()->back()->with('success', "Einkauf wurde erfolgreich hinzugefügt!");  //man wird zur Startseite zurcükgeführt, Anzeigen, dass die Eingabe erfolgreich war
 
     }
 
     public function edit($id){
-        return view('einkaufliste.edit')->with(['id' => $id]);
+        $einkaufliste = Einkaufliste::find($id);
+        $updateTitle = $einkaufliste->title; 
+        return view('einkaufliste.edit')->with(['id' => $id, 'einkaufliste' => $einkaufliste]);
     }
 }

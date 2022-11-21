@@ -10,7 +10,7 @@
     <h1>Bearbeite deine Einkaufliste</h1>
     <form action="/update" method="post">
         @csrf
-        <input type="text" name="title" />
+        <input type="text" name="title" value="{{$einkaufliste->title}}"/>
         <input type="submit" name="Create" />
     </form>
     <break>
