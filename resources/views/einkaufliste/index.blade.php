@@ -11,6 +11,9 @@
     <h3>
         <a href="/create">Einkäufe hinzufügen</a>
     </h3>
+    <h3>
+        <x-alert />
+    </h3>
     @foreach($einkäufe as $einkaufliste)
         <li>
             {{$einkaufliste->title}}
