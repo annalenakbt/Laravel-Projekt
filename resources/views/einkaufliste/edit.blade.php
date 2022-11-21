@@ -8,6 +8,9 @@
 </head>
 <body style="text-align:center">                                                
     <h1>Bearbeite deine Einkaufliste</h1>
+    <h3>
+        <x-alert />
+    </h3>  
     <form action="/update" method="post">
         @csrf
         @method('patch')
