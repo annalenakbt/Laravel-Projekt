@@ -32,7 +32,11 @@ class EinkauflisteController extends Controller
         return view('einkaufliste.edit')->with(['id' => $id, 'einkaufliste' => $einkaufliste]);
     }
 
-    public function update(){
-        
+    public function update(Request $request){
+        $request->validate([
+            'title' => 'required|max:255'
+        ]);
+        $updateEinkaufliste = Einkaufliste::find($request->id);
+        $updateEinkaufliste->update(['title' => $request->title]);
     }
 }

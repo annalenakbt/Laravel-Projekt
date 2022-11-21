@@ -12,6 +12,7 @@
         @csrf
         @method('patch')
         <input type="text" name="title" value="{{$einkaufliste->title}}"/>
+        <input style="display:none" type="number" name="id" value="{{$einkaufliste->id}}">
         <input type="submit" value="Bearbeiten" />
     </form>
     <break>
