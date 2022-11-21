@@ -27,7 +27,7 @@ class UserController extends Controller
 
         return redirect('/index')->with('message', 'User wurde erfolgreich angelegt');
     }
-
+ 
     public function logout(Request $request) {
         auth()->logout();
 
@@ -35,5 +35,12 @@ class UserController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/index')->with('message', 'Du bist jetzt ausgeloggt'); 
+    
     }
+
+
+    public function login () {
+        return view('einkaufliste.login');
+    }
+
 }
