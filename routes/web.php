@@ -27,4 +27,5 @@ Route::patch('/update', [EinkauflisteController::class, 'update']);
 Route::get('/{id}/completed', [EinkauflisteController::class, 'completed']);
 Route::get('/{id}/delete', [EinkauflisteController::class, 'delete']);
 Route::get('/register', [UserController::class, 'register']);
+Route::post('/users', [UserController::class, 'user']);
 
