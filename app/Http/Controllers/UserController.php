@@ -43,4 +43,20 @@ class UserController extends Controller
         return view('einkaufliste.login');
     }
 
+    public function authenticate(Request $request) {
+        $formFields = $request->validate([ 
+            'email' => ['required', 'email'],
+            'password' => ['required']
+        ]);
+
+        if(auth()->attempt($formFields)) {
+            $request->session()->regenerate();
+
+            return redirect('/index')->with('message', 'Einloggen war erfolgreich');
+        }
+
+        return back()->withErrors(['email' => 'Invalid Credentials'])->onlyInput('email');
+
+    }
+
 }

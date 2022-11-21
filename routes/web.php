@@ -30,4 +30,4 @@ Route::get('/register', [UserController::class, 'register']);
 Route::post('/users', [UserController::class, 'user']);
 Route::post('/logout', [UserController::class, 'logout']);
 Route::get('/login', [UserController::class, 'login']);
-Route::post('/users/authenicate', [UserController::class, 'login']);
+Route::post('/users/authenticate', [UserController::class, 'authenticate']);

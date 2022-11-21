@@ -16,7 +16,7 @@
       <p class="mb-4">Logge dich ein um deine Einkaufliste zu sehen</p>
     </header>
 
-    <form method="POST" action="/users/authenicate">
+    <form method="POST" action="/users/authenticate">
       @csrf
 
       <div class="mb-6">
