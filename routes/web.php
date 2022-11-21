@@ -20,7 +20,7 @@ Route::get('/', function () {
 });
 
 Route::get('/index', [EinkauflisteController::class, 'index'])->name('einkaufliste.index');                     //Zugriff auf die verschiedenen Seiten
-Route::get('/create', [EinkauflisteController::class, 'create']);
+Route::get('/create', [EinkauflisteController::class, 'create'])->middleware('auth');
 Route::post('/upload', [EinkauflisteController::class, 'upload']);
 Route::get('/{id}/edit', [EinkauflisteController::class, 'edit']);
 Route::patch('/update', [EinkauflisteController::class, 'update']);
