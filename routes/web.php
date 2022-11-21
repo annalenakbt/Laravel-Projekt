@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EinkauflisteController;
+use App\Http\Controller\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,5 @@ Route::get('/{id}/edit', [EinkauflisteController::class, 'edit']);
 Route::patch('/update', [EinkauflisteController::class, 'update']);
 Route::get('/{id}/completed', [EinkauflisteController::class, 'completed']);
 Route::get('/{id}/delete', [EinkauflisteController::class, 'delete']);
+Route::get('/register', [UserController::class, 'register']);
+
