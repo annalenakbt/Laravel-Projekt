@@ -21,13 +21,13 @@ Route::get('/', function () {
 
 Route::get('/index', [EinkauflisteController::class, 'index'])->name('einkaufliste.index');                     //Zugriff auf die verschiedenen Seiten
 Route::get('/create', [EinkauflisteController::class, 'create'])->middleware('auth');
-Route::post('/upload', [EinkauflisteController::class, 'upload']);
-Route::get('/{id}/edit', [EinkauflisteController::class, 'edit']);
-Route::patch('/update', [EinkauflisteController::class, 'update']);
-Route::get('/{id}/completed', [EinkauflisteController::class, 'completed']);
-Route::get('/{id}/delete', [EinkauflisteController::class, 'delete']);
+Route::post('/upload', [EinkauflisteController::class, 'upload'])->middleware('auth');
+Route::get('/{id}/edit', [EinkauflisteController::class, 'edit'])->middleware('auth');
+Route::patch('/update', [EinkauflisteController::class, 'update'])->middleware('auth');
+Route::get('/{id}/completed', [EinkauflisteController::class, 'completed'])->middleware('auth');
+Route::get('/{id}/delete', [EinkauflisteController::class, 'delete'])->middleware('auth');
 Route::get('/register', [UserController::class, 'register']);
 Route::post('/users', [UserController::class, 'user']);
 Route::post('/logout', [UserController::class, 'logout']);
-Route::get('/login', [UserController::class, 'login']);
+Route::get('/login', [UserController::class, 'login'])->name('login');
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
