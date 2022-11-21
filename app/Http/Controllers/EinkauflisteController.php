@@ -38,6 +38,6 @@ class EinkauflisteController extends Controller
         ]);
         $updateEinkaufliste = Einkaufliste::find($request->id);
         $updateEinkaufliste->update(['title' => $request->title]);
-        return redirect('einkaufliste.index')->with('success', "Einkaufliste wurde erfolgreich geupdatet");
+        return redirect('/index')->with('success', "Einkaufliste wurde erfolgreich geupdatet");
     }
 }
