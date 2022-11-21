@@ -18,7 +18,7 @@
         <li>
             {{$einkaufliste->title}}
             <a href="{{asset('/' . $einkaufliste->id . '/edit')}}">Bearbeiten</a>
-            <a href="{{asset('/' . $einkaufliste->id . '/edit')}}">Gekauft</a>
+            <a href="{{asset('/' . $einkaufliste->id . '/completed')}}">Gekauft</a>
     @endforeach
 </body>
 </html>
