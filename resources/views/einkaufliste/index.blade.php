@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EINKAUFLISTE | Home</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 <body class="mb-48">
@@ -51,6 +52,9 @@
     <h3>
         <x-alert />
     </h3>
+
+    <tbody class="alldata"></tbody>
+
     @if (count($lists)==0)
     <p>Hello, please add ur Students to the list by clicking thie "Add Student"-Button</p>
     @else
@@ -65,8 +69,47 @@
         <a href="{{asset('/' . $einkaufliste->id . '/completed')}}">Gekauft</a>
         <a href="{{asset('/' . $einkaufliste->id . '/delete')}}">Löschen</a>
     </li>
+
     @endforeach
     @endif
+
+    <tbody id="Content" class="searchdata"></tbody>
+
+    <script type="text/javascript">
+        $('#search').on('keyup', function() 
+        {
+            $value=$(this).val();
+
+            if($value)
+            {
+                $('.alldata').hide();
+                $('.searchdata').show();
+            }
+
+            else{
+
+                $('.alldata').show();
+                $('.searchdata').hide();
+
+            }
+
+            $.ajax({
+
+                type:'get',
+                url:'{{URL::to('search')}}',
+                data:{'search':$value},
+
+                success:function(data)
+                {
+                    console.log(data);
+                    $('#Content').html(data);
+                }
+            });
+
+        })
+    </script>
+
+
 </body>
 
 </html>

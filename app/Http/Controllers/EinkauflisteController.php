@@ -68,4 +68,27 @@ class EinkauflisteController extends Controller
         return view('welcome');
     }
 
+    public function search(Request $request)
+    {
+        $output="";
+
+        $einkäufe=Einkaufliste::where('name', 'Like', '%' .$request->search, '%')->get();
+
+        foreach($einkäufe as $einkäufe) {
+
+            $output.=
+
+            '<ul>
+            
+            <li> '.$einkäufe->name.' </li>
+
+            </>';
+
+        }
+
+        return response($output);
+    }
+
+        
+
 }
