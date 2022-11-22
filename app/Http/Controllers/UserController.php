@@ -34,7 +34,7 @@ class UserController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/index')->with('message', 'Du bist jetzt ausgeloggt'); 
+        return redirect('/'); 
     
     }
 

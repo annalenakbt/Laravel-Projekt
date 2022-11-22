@@ -15,10 +15,7 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/' ,[EinkauflisteController::class,'welcome']);
 Route::get('/index', [EinkauflisteController::class, 'index'])->name('einkaufliste.index');                     //Zugriff auf die verschiedenen Seiten
 Route::get('/create', [EinkauflisteController::class, 'create'])->middleware('auth');
 Route::post('/upload', [EinkauflisteController::class, 'upload'])->middleware('auth');

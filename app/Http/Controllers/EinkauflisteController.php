@@ -61,4 +61,10 @@ class EinkauflisteController extends Controller
         $einkaufliste->delete(); 
         return redirect()->back()->with('success', "Einkauf wurde gelöscht");
     }
+
+    public function welcome()
+    {
+        return view('welcome');
+    }
+    
 }
