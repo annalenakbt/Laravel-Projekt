@@ -9,7 +9,8 @@ class Einkaufliste extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'title', 
+        'title',
+        'user_id', 
         'completed'
     ]; 
 

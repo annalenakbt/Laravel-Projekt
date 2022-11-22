@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('einkauflistes', function (Blueprint $table) {               //Funktion Einkaufliste wird erstellt
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('title');
             $table->boolean('completed')->default(false);
             $table->timestamps();
