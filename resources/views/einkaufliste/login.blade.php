@@ -1,16 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EINKAUFLISTE | Regestriere dich hier</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EINKAUFLISTE | Regestriere dich hier</title>
 </head>
-<body style="text-align:center">  
-<div
-    class="bg-gray-50 border border-gray-200 p-10
-    rounded max-w-lg mx-auto mt-24"
-    >
+
+<body style="text-align:center">
+  <style>
+    body {
+      text-align: center;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      font-size: 12pt;
+      background: #F2EFE9;
+    }
+
+    .btn2 {
+      line-height: 50px;
+      height: 50px;
+      text-align: center;
+      width: 100px;
+      cursor: pointer;
+    }
+
+
+    .btn2 {
+      background-color: #79717A;
+      border-radius: 8px;
+      border-style: none;
+      box-sizing: border-box;
+      color: #FFFFFF;
+      cursor: pointer;
+      display: inline-block;
+      font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      height: 30px;
+      line-height: 10px;
+      list-style: none;
+      margin: 0;
+      outline: none;
+      padding: 10px 16px;
+      position: relative;
+      text-align: center;
+      text-decoration: none;
+      transition: color 100ms;
+      vertical-align: baseline;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+    }
+
+    .btn2:hover,
+    .btn2:focus {
+      background-color: #988E99;
+    }
+
+    .btn3 {
+      line-height: 50px;
+      height: 50px;
+      text-align: center;
+      width: 150px;
+      cursor: pointer;
+    }
+
+
+    .btn3 {
+      background-color: #79717A;
+      border-radius: 8px;
+      border-style: none;
+      box-sizing: border-box;
+      color: #FFFFFF;
+      cursor: pointer;
+      display: inline-block;
+      font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      height: 30px;
+      line-height: 10px;
+      list-style: none;
+      margin: 0;
+      outline: none;
+      padding: 10px 16px;
+      position: relative;
+      text-align: center;
+      text-decoration: none;
+      transition: color 100ms;
+      vertical-align: baseline;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+    }
+
+    .btn3:hover,
+    .btn3:focus {
+      background-color: #988E99;
+    }
+  </style>
+
+  <div class="bg-gray-50 border border-gray-200 p-10
+    rounded max-w-lg mx-auto mt-24">
     <header class="text-center">
       <h2 class="text-2xl font-bold uppercase mb-1">Logge dich jetzt ein</h2>
       <p class="mb-4">Logge dich ein um deine Einkaufliste zu sehen</p>
@@ -32,27 +123,36 @@
         <label for="password" class="inline-block text-lg mb-2">
           Passwort
         </label>
-        <input type="password" class="border border-gray-200 rounded p-2 w-full" name="password"
-          value="{{old('password')}}" />
+        <input type="password" class="border border-gray-200 rounded p-2 w-full" name="password" value="{{old('password')}}" />
 
         @error('password')
         <p class="text-red-500 text-xs mt-1">{{$message}}</p>
         @enderror
       </div>
 
+      <p>
       <div class="mb-6">
-        <button type="submit" class="bg-laravel text-white rounded py-2 px-4 hover:bg-black">
+        <button class="btn2" type="submit" class="bg-laravel text-white rounded py-2 px-4 hover:bg-black">
           Einloggen
         </button>
       </div>
+      </p>
 
       <div class="mt-8">
         <p>
           Du hast noch keinen Account?
-          <a href="/register" class="text-laravel">Jetzt regestrieren</a>
         </p>
+        <p>
       </div>
+      </p>
     </form>
-</div>
+  </div>
+  <form class="inline" method="GET" action="/register">
+    @csrf
+    <button class="btn2" type="submit">
+      Regestrieren
+    </button>
+  </form>
 </body>
+
 </html>

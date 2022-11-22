@@ -7,33 +7,128 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EINKAUFLISTE | Home</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
 </head>
 
 <body class="mb-48">
+
+    <style>
+        body {
+            text-align: center;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 12pt;
+            background: #F2EFE9;
+        }
+
+
+
+        h1 {
+            font-size: 25pt;
+        }
+
+        .btn {
+            line-height: 50px;
+            height: 50px;
+            text-align: center;
+            width: 200px;
+            cursor: pointer;
+        }
+
+
+        .btn {
+            background-color: #79717A;
+            border-radius: 8px;
+            border-style: none;
+            box-sizing: border-box;
+            color: #FFFFFF;
+            cursor: pointer;
+            display: inline-block;
+            font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            height: 40px;
+            line-height: 20px;
+            list-style: none;
+            margin: 0;
+            outline: none;
+            padding: 10px 16px;
+            position: relative;
+            text-align: center;
+            text-decoration: none;
+            transition: color 100ms;
+            vertical-align: baseline;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+        }
+
+        .btn:hover,
+        .btn:focus {
+            background-color: #988E99;
+        }
+
+        .btn2 {
+            line-height: 50px;
+            height: 50px;
+            text-align: center;
+            width: 100px;
+            cursor: pointer;
+        }
+
+
+        .btn2 {
+            background-color: #79717A;
+            border-radius: 8px;
+            border-style: none;
+            box-sizing: border-box;
+            color: #FFFFFF;
+            cursor: pointer;
+            display: inline-block;
+            font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            height: 30px;
+            line-height: 10px;
+            list-style: none;
+            margin: 0;
+            outline: none;
+            padding: 10px 16px;
+            position: relative;
+            text-align: center;
+            text-decoration: none;
+            transition: color 100ms;
+            vertical-align: baseline;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+        }
+
+        .btn2:hover,
+        .btn2:focus {
+            background-color: #988E99;
+        }
+
+
+        
+    </style>
+
     <nav class="flex justify-between items-center mb-4">
         <ul class="flex space-x-6 mr-6 text-lg">
             @auth
-            <div class="Container">
-                <div class="search">
-                    <input type="search" name="search" id="search" placeholder="Suche" class="form-control">
-                </div>
-            </div>
-            <li>
+
+            <p>
                 <span class="font-bold uppercase">
                     Wilkommen {{auth()->user()->name}}
                 </span>
-            </li>
-            <li>
-                <a href="/listings/manage" class="hover:text-laravel"><i class="fa-solid fa-gear"></i> Manage Listings</a>
-            </li>
-            <li>
-                <form class="inline" method="POST" action="/logout">
-                    @csrf
-                    <button type="submit">
-                        Ausloggen
-                    </button>
-                </form>
-            </li>
+            </p>
+
+            <form class="inline" method="POST" action="/logout">
+                @csrf
+                <button class=btn2 type="submit">
+                    Ausloggen
+                </button>
+            </form>
 
             @else
             <li>
@@ -46,8 +141,18 @@
         </ul>
     </nav>
     <h1>Hier siehst du all deine Einkäufe</h1>
+    <div class="Container">
+        <div class="search">
+            <input type="search" name="search" id="search" placeholder="Meine Einkäufe durchsuchen" class="form-control">
+        </div>
+    </div>
     <h3>
-        <a href="/create">Einkäufe hinzufügen</a>
+        <form class="inline" method="GET" action="/create">
+            @csrf
+            <button class="btn" type="submit">
+                Einkäufe hinzufügen
+            </button>
+        </form>
     </h3>
     <h3>
         <x-alert />
@@ -56,7 +161,7 @@
     <tbody class="alldata"></tbody>
 
     @if (count($lists)==0)
-    <p>Hello, please add ur Students to the list by clicking thie "Add Student"-Button</p>
+    <p>Füge jetzt deine Einläufe hinzu</p>
     @else
     @foreach($lists as $einkaufliste)
     <li>
@@ -76,17 +181,13 @@
     <tbody id="Content" class="searchdata"></tbody>
 
     <script type="text/javascript">
-        $('#search').on('keyup', function() 
-        {
-            $value=$(this).val();
+        $('#search').on('keyup', function() {
+            $value = $(this).val();
 
-            if($value)
-            {
+            if ($value) {
                 $('.alldata').hide();
                 $('.searchdata').show();
-            }
-
-            else{
+            } else {
 
                 $('.alldata').show();
                 $('.searchdata').hide();
@@ -95,12 +196,14 @@
 
             $.ajax({
 
-                type:'get',
-                url:'{{URL::to('search')}}',
-                data:{'search':$value},
+                type: 'get',
+                url: '{{URL::to('
+                search ')}}',
+                data: {
+                    'search': $value
+                },
 
-                success:function(data)
-                {
+                success: function(data) {
                     console.log(data);
                     $('#Content').html(data);
                 }
