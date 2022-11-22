@@ -12,6 +12,11 @@
     <nav class="flex justify-between items-center mb-4">
         <ul class="flex space-x-6 mr-6 text-lg">
             @auth
+            <div class="Container">
+                <div class="search">
+                    <input type="search" name="search" id="search" placeholder="Suche" class="form-control">
+                </div>
+            </div>
             <li>
                 <span class="font-bold uppercase">
                     Wilkommen {{auth()->user()->name}}
