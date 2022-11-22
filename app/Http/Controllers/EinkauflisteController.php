@@ -4,14 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Einkaufliste;
-use App\Models\User; 
+use App\Models\User;
 
 
 class EinkauflisteController extends Controller
 {
     public function index(){                        // Startseite 
         $einkäufe = Einkaufliste::orderBy('completed')->get();
-        return view('einkaufliste.index')->with(['einkäufe' => $einkäufe]); 
+        // return view('einkaufliste.index')->with(['einkäufe' => $einkäufe]); 
+        return view('/einkaufliste/index', ['lists' => auth()->user()->lists()->get()]); 
     }
 
     public function create(){                       //Erstellung der Einkaufsliste 
@@ -26,7 +27,7 @@ class EinkauflisteController extends Controller
         Einkaufliste::create(
             $data   
         );
-        return redirect()->back()->with('success', "Einkauf wurde erfolgreich hinzugefügt!");  //man wird zur Startseite zurcükgeführt, Anzeigen, dass die Eingabe erfolgreich war
+        return redirect('/index')->with('success', "Einkauf wurde erfolgreich hinzugefügt!");  //man wird zur Startseite zurcükgeführt, Anzeigen, dass die Eingabe erfolgreich war
 
     }
 
@@ -66,5 +67,5 @@ class EinkauflisteController extends Controller
     {
         return view('welcome');
     }
-    
+
 }
