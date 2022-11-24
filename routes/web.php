@@ -14,6 +14,7 @@ use App\Http\Controllers\UserController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/search', [EinkauflisteController::class, 'search'])->name('search');
 Route::get('/', [EinkauflisteController::class,'welcome']);
 Route::get('/index', [EinkauflisteController::class, 'index'])->name('einkaufliste.index');                     //Zugriff auf die verschiedenen Seiten
 Route::get('/create', [EinkauflisteController::class, 'create'])->middleware('auth');
@@ -27,4 +28,3 @@ Route::post('/users', [UserController::class, 'user']);
 Route::post('/logout', [UserController::class, 'logout']);
 Route::get('/login', [UserController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
-Route::get('/search', [EinkauflisteController::class, 'search'])->name('search');

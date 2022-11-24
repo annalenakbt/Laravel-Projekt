@@ -70,23 +70,38 @@ class EinkauflisteController extends Controller
 
     public function search(Request $request)
     {
+    
         $output="";
 
-        $einkäufe=Einkaufliste::where('name', 'Like', '%' .$request->search, '%')->get();
+        $uid = auth()->user()->id;
+        
+        
 
-        foreach($einkäufe as $einkäufe) {
+        $einkäufe=Einkaufliste::where('title', 'Like', '%'.$request->search. '%')->where('user_id', 'Like', '%'.$uid. '%')->get();
 
+        foreach($einkäufe as $einkauf) {
+/*
             $output.=
 
             '<ul>
             
-            <li> '.$einkäufe->name.' </li>
+            <li> '.$einkäufe->title.' </li>
 
             </>';
+*/
+            $output.=
+
+            '<li>
+            <span>'.$einkauf->title.'</span>
+            <a href="'.$einkauf->id . '/edit">Bearbeiten</a>
+            <a href="'.$einkauf->id . '/completed">Gekauft</a>
+            <a href="'.$einkauf->id . '/delete">Löschen</a>
+        </li>';
 
         }
 
-        return response($output);
+        return response($output); 
+    
     }
 
         

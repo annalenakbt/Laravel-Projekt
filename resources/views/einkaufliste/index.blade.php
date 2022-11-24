@@ -163,6 +163,7 @@
     @if (count($lists)==0)
     <p>Füge jetzt deine Einläufe hinzu</p>
     @else
+    <div id="einkaufliste">
     @foreach($lists as $einkaufliste)
     <li>
         @if($einkaufliste->completed)
@@ -176,15 +177,16 @@
     </li>
 
     @endforeach
+    </div>
     @endif
 
     <tbody id="Content" class="searchdata"></tbody>
 
     <script type="text/javascript">
         $('#search').on('keyup', function() {
-            $value = $(this).val();
-
-            if ($value) {
+            let value = $(this).val();
+console.log(value);
+            if (value) {
                 $('.alldata').hide();
                 $('.searchdata').show();
             } else {
@@ -197,15 +199,14 @@
             $.ajax({
 
                 type: 'get',
-                url: '{{URL::to('
-                search ')}}',
+                url: '{{URL::to("search")}}',
                 data: {
-                    'search': $value
+                    'search': value
                 },
 
                 success: function(data) {
                     console.log(data);
-                    $('#Content').html(data);
+                    $('#einkaufliste').html(data);
                 }
             });
 
